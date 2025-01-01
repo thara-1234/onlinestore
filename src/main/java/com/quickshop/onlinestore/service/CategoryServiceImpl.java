@@ -1,6 +1,8 @@
 package com.quickshop.onlinestore.service;
 
 import com.quickshop.onlinestore.model.Category;
+import com.quickshop.onlinestore.repositories.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,6 +15,8 @@ import java.util.Optional;
 public class CategoryServiceImpl implements CategoryService{
     private List<Category> categories=new ArrayList<>();
     private Long nextId= 1L;
+    @Autowired
+    private CategoryRepository categoryRepository;
     @Override
     public List<Category> getAllCategories() {
         return categories;
